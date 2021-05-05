@@ -1,6 +1,8 @@
 package com.devsuperior.dsvendas.resources;
 
 import com.devsuperior.dsvendas.entities.dto.SaleDTO;
+import com.devsuperior.dsvendas.entities.dto.SaleSuccessDTO;
+import com.devsuperior.dsvendas.entities.dto.SaleSumDTO;
 import com.devsuperior.dsvendas.entities.dto.SellerDTO;
 import com.devsuperior.dsvendas.services.SaleService;
 import com.devsuperior.dsvendas.services.SellerService;
@@ -25,4 +27,20 @@ public class SaleResource {
         Page<SaleDTO> list = service.findAll(pageable);
         return ResponseEntity.ok(list);
     }
+
+    @GetMapping(value="/amount-by-seller")
+    public ResponseEntity<List<SaleSumDTO>> amountGroupedBySeller(){
+        List<SaleSumDTO> list = service.amountGroupedBySeller();
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping(value="/success-by-seller")
+    public ResponseEntity<List<SaleSuccessDTO>> successGroupedBySeller(){
+        List<SaleSuccessDTO> list = service.successGroupedBySeller();
+        return ResponseEntity.ok(list);
+    }
+
+
+
+
 }
