@@ -2,7 +2,9 @@ package com.devsuperior.dsvendas.entities.dto;
 
 import com.devsuperior.dsvendas.entities.Seller;
 
-public class SellerDTO {
+import java.io.Serializable;
+
+public class SellerDTO implements Serializable {
     private Long id;
     private String name;
 

@@ -27,14 +27,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             http.headers().frameOptions().disable();
         }
 
-
-
         http.cors().and().csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests().antMatchers("/").permitAll().and()
                 .authorizeRequests().antMatchers("/h2-console/**").permitAll();
         http.authorizeRequests().anyRequest().permitAll();
-        http.headers().frameOptions().disable();
     }
 
     @Bean
