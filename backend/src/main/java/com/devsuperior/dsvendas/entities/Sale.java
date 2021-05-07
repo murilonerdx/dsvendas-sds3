@@ -1,5 +1,7 @@
 package com.devsuperior.dsvendas.entities;
 
+import com.devsuperior.dsvendas.entities.dto.SellerDTO;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -13,6 +15,7 @@ public class Sale {
     private Integer deals;
     private Double amount;
     private LocalDate date;
+
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="seller_id")
@@ -73,5 +76,7 @@ public class Sale {
         return seller;
     }
 
-
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
 }

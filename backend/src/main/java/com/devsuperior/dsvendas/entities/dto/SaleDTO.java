@@ -1,6 +1,7 @@
 package com.devsuperior.dsvendas.entities.dto;
 
 import com.devsuperior.dsvendas.entities.Sale;
+import com.devsuperior.dsvendas.entities.Seller;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -12,13 +13,16 @@ public class SaleDTO implements Serializable {
     private Integer deals;
     private Double amount;
     private LocalDate date;
+    private SellerDTO seller;
 
-    public SaleDTO(Long id, Integer visited, Integer deals, Double amount, LocalDate date) {
+
+    public SaleDTO(Long id, Integer visited, Integer deals, Double amount, LocalDate date, SellerDTO seller) {
         this.id = id;
         this.visited = visited;
         this.deals = deals;
         this.amount = amount;
         this.date = date;
+        this.seller = seller;
     }
 
     public SaleDTO(){}
@@ -30,6 +34,7 @@ public class SaleDTO implements Serializable {
             this.deals = obj.getDeals();
             this.amount = obj.getAmount();
             this.date = obj.getDate();
+            this.seller = new SellerDTO(obj.getSeller());
         }
     }
 
@@ -71,5 +76,13 @@ public class SaleDTO implements Serializable {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public SellerDTO getSeller() {
+        return seller;
+    }
+
+    public void setSeller(SellerDTO seller) {
+        this.seller = seller;
     }
 }
